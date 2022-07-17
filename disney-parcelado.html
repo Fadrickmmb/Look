@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="icon" href="/Archives/Look Favicon.png" type="image">
+        <title>LOOK®</title>                         
+    </head>
+
+    <body class="disney-result-body">
+
+        <a href="choosepark.html" ><button class="redo-button">REFAZER</button></a>
+
+        <div class="choose-view-div">
+
+          <p class="choose-view-p">Veja o menor preço para pagamento:</p>
+          <a href="disney-result.html"><button id="toggle-button-cinza">À VISTA</button></a>
+          <button id="parcelado-button">PARCELADO</button>
+
+        </div>
+
+        <div id="disney-result-div">
+            <table id="disney-a-vista-div">
+                <tr> 
+                  <th class="ranking-title">★</th>               
+                  <th class="pagamento-title">PAGAMENTO PARCELADO</th>                  
+                  <th class="veja-empresa-title">VEJA A EMPRESA</th>
+                </tr>
+                <tr>
+                  <td>1º</td>
+                  <td>À partir de 10x de <span id="mbParcelado"></span></td>                  
+                  <td class="veja-empresa"><a href="redirect-mb.html"><button>ENTRAR NO SITE</button></a></td>
+                  
+                </tr>  
+                <tr>
+                  <td>2º</td>
+                  <td>À partir de 12X de <span id="vpParcelado"></span></td>                  
+                  <td class="veja-empresa"><a href="redirect-vp.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>
+                <tr>
+                  <td>3º</td>
+                  <td>À partir de 10x de <span id="vmzParcelado"></span></td>                  
+                  <td class="veja-empresa"><a href="redirect-vmz.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr> 
+                <td>4º</td>
+                  <td>À partir de 10x de R$<span id="decoParcelado"></span>0</td>                  
+                  <td class="veja-empresa"><a href="redirect-decolar.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>                                                   
+                <!--<tr>
+                  <td>À partir de:</td>
+                  <td class="veja-empresa"><button>ENTRAR NO SITE</button></td>
+              </tr>-->
+            </table>
+            <p class="disclaimer">*Os valores exibidos acima foram coletados pelo nosso sistema no dia <span id="jkl"></span> e horário <span id="mno">xx:xx</span>. 
+              Os mesmos estão sujeitos à <br>alterações em decorrência de flutuação cambial. O valor final deverá ser confirmado no site da operadora.</p>
+        </div>
+
+      <script>
+
+        /* READING JSON FILE */ 
+  
+        $.getJSON("Scraped-Disney.json", function(d) {
+          const mbPrecoParcelado = d["MB"]["preco2"];
+          $("#mbParcelado").html(mbPrecoParcelado);
+
+          const vmzPrecoParcelado = d["VMZ"]["preco2"];
+          $("#vmzParcelado").html(vmzPrecoParcelado);
+
+          const decoPreco = d["DECO"]["preco"];
+          const decoPrecoParcelado = decoPreco/10;  
+          $("#decoParcelado").html(decoPrecoParcelado);        
+          /*let virgula = decoPrecoParcelado.replace(".",",");
+          $("#decoParcelado").html(decoPreco/10);*/                
+          
+          const vpPrecoParcelado = d["VP"]["preco2"];
+          $("#vpParcelado").html(vpPrecoParcelado);         
+
+          let horario = new Date(d.horario);
+
+          $("#jkl").html(horario.getDate() + "/" + (horario.getMonth() + 1) + "/" + horario.getFullYear());
+          $("#mno").html(horario.getHours() + ":" + horario.getMinutes());
+          
+        });
+
+      </script>
+          
+
+    </body>
+
+</html>

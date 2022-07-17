@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="icon" href="/Archives/Look Favicon.png" type="image">
+        <title>LOOK®</title>                         
+    </head>
+
+    <body class="disney-result-body">
+
+        <div class="loader">
+            <div></div> 
+            <span><p>Procurando o melhor preço para sua compra...</p></span>           
+        </div>
+
+        <a href="choosepark.html" ><button class="redo-button">REFAZER</button></a>
+
+        <div class="choose-view-div">
+
+            <p class="choose-view-p">Veja o menor preço para pagamento:</p>
+            <button id="a-vista-button">À VISTA</button>
+            <a href="disney-parcelado.html"><button id="toggle-button-cinza">PARCELADO</button></a>
+  
+          </div>
+
+        <div class="content"> 
+        
+        <div id="disney-result-div">
+            <table id="disney-a-vista-div">
+                <tr>
+                  <th class="ranking-title">★</th>
+                  <th class="pagamento-title">PAGAMENTO A VISTA</th>                  
+                  <th class="veja-empresa-title">VEJA A EMPRESA</th>
+                </tr>
+                <tr>
+                  <!--<td>À partir de: <span id="abc"></span></td> -->
+                  <td>1º</td>
+                  <td>À partir de: R$630,00</td>                 
+                  <td class="veja-empresa"><a href="redirect-mb.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>
+                <tr>
+                  <td>2º</td>
+                  <td>À partir de: R$641,61</td>
+                  <td class="veja-empresa"><a href="redirect-vp.html"><button>ENTRAR NO SITE</button></a></td>
+              </tr>
+                <tr>
+                  <td>3º</td>
+                  <td id="vmz01">À partir de: R$676,45</td>                  
+                  <td class="veja-empresa"><a href="redirect-vmz.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>
+                <tr>
+                  <td>4º</td>
+                  <td>À partir de: R$740,00</td>                  
+                  <td class="veja-empresa"><a href="redirect-decolar.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>                     
+            </table>
+            <p class="disclaimer">*Os valores exibidos acima foram coletados pelo nosso sistema no dia <span>xx/xx/xxxx</span> e horário <span>xx:xx</span>. 
+                Os mesmos estão sujeitos à <br>alterações em decorrência de flutuação cambial. O valor final deverá ser confirmado no site da operadora.</p>
+        </div>
+    </div>
+
+           
+    </body>
+
+<script>
+
+    $(".loader").fadeOut(3000, function() {
+        $(".loader").css("display", "");
+        $(".loader").css("visibility", "hidden");              
+    });
+
+    $(".content").ready(function() {
+   setTimeout(function(){ $(".content").fadeIn(50); }, 3500);        
+});
+
+
+    fetch("Scraped-Disney.json")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.sentence)
+        document.getElementById("").innerHTML = "A partir de: " + data.sentence
+      })
+
+
+  /*
+  $.getJSON("Scraped-Prices.json", function(d) {
+    for (let id in d) {
+      let horario = new Date(d.horario);
+      let price = "R$ " + d[id].preco.toFixed(2).replace(".", ",");
+      $("#disney-a-vista-div").append("<tr><td id=\"" + id + "\">À partir de: " + price + "</td><td class=\"veja-empresa\"><a href=\"redirect-" + id + ".html\"><button>ENTRAR NO SITE</button></a></td></tr>");
+    }
+  });*/
+</script>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height" initial-scale="1.0">
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="icon" href="/Archives/Look Favicon.png" type="image">
+        <title>LOOK®</title>                         
+    </head>
+
+    <body class="disney-result-body">
+
+        <div class="loader">
+            <div></div> 
+            <span><p>Procurando o melhor preço para sua compra...</p></span>           
+        </div>
+
+        <a href="choosepark.html" ><button class="redo-button">REFAZER</button></a>
+
+        <div class="choose-view-div">
+
+            <p class="choose-view-p">Veja o menor preço para pagamento:</p>
+            <button id="a-vista-button">À VISTA</button>
+            <a href="disney-parcelado.html"><button id="toggle-button-cinza">PARCELADO</button></a>
+  
+          </div>
+
+        <div class="content"> 
+        
+        <div id="disney-result-div">
+            <table id="disney-a-vista-div">
+                <tr>
+                  <th class="ranking-title">★</th>
+                  <th class="pagamento-title">PAGAMENTO A VISTA</th>                  
+                  <th class="veja-empresa-title">VEJA A EMPRESA</th>
+                </tr>
+                <tr>
+                  <!--<td>À partir de: <span id="abc"></span></td> -->
+                  <td>1º</td>
+                  <td>À partir de: <span id="mbAVista"></span></td>                 
+                  <td class="veja-empresa"><a href="redirect-mb.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>
+                <tr>
+                  <td>2º</td>
+                  <td>À partir de: <span id="vpAVista"></span></td>
+                  <td class="veja-empresa"><a href="redirect-vp.html"><button>ENTRAR NO SITE</button></a></td>
+              </tr>
+                <tr>
+                  <td>3º</td>
+                  <td id="vmz01">À partir de: <span id="vmzAVista"></span></td>                  
+                  <td class="veja-empresa"><a href="redirect-vmz.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>
+                <tr>
+                  <td>4º</td>
+                  <td>À partir de: R$ <span id="decoAVista"></span></td>                  
+                  <td class="veja-empresa"><a href="redirect-decolar.html"><button>ENTRAR NO SITE</button></a></td>
+                </tr>                     
+            </table>
+            <p class="disclaimer">*Os valores exibidos acima foram coletados pelo nosso sistema no dia <span id="jkl"></span> e horário <span id="mno">xx:xx</span>. 
+                Os mesmos estão sujeitos à <br>alterações em decorrência de flutuação cambial. O valor final deverá ser confirmado no site da operadora.</p>
+        </div>
+    </div>
+
+           
+    </body>
+
+<script>
+
+  /* LOADER */
+
+    $(".loader").fadeOut(3000, function() {
+        $(".loader").css("display", "");
+        $(".loader").css("visibility", "hidden");              
+    });
+
+    $(".content").ready(function() {
+   setTimeout(function(){ $(".content").fadeIn(50); }, 3500);        
+});
+
+  /* READING JSON FILE */ 
+  
+  $.getJSON("Scraped-Disney.json", function(d) {
+    const mbPreco = d["MB"]["preco"];
+    $("#mbAVista").html(mbPreco);
+
+    const vmzPreco = d["VMZ"]["preco"];
+    $("#vmzAVista").html(vmzPreco);
+
+    const decoPreco = d["DECO"]["preco"]
+    $("#decoAVista").html(decoPreco);
+    
+    const vpPreco = d["VP"]["preco"];
+    $("#vpAVista").html(vpPreco);
+
+    let horario = new Date(d.horario);
+
+    $("#jkl").html(horario.getDate() + "/" + (horario.getMonth() + 1) + "/" + horario.getFullYear());
+    $("#mno").html(horario.getHours() + ":" + horario.getMinutes());
+    
+  });
+</script>
+
+</html>

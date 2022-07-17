@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="icon" href="/Archives/Look Favicon.png" type="image">
+        <title>LOOK®</title>        
+    </head>
+
+    <body class="universal-result-body">
+       
+            <a href="choosepark.html" ><button class="redo-button">REFAZER</button></a>
+    
+            <div class="choose-view-div">
+    
+              <p class="choose-view-p">Veja o menor preço para pagamento:</p>
+              <a href="universal-result.html"><button id="toggle-button-cinza">À VISTA</button></a>
+              <button id="parcelado-button">PARCELADO</button>
+                
+            </div>
+
+            <div id="universal-result-div">
+
+                <table id="universal-a-vista-div">
+                    <tr>
+                      <th class="pagamento-title">PAGAMENTO PARCELADO</th>                  
+                      <th class="veja-empresa-title">VEJA A EMPRESA</th>
+                    </tr>
+                    <tr>
+                        <td>À partir de 10x de: <span id="mbParceladoUn"></span></td>
+                        <td class="veja-empresa"><a href="redirect-mb-un.html"><button>ENTRAR NO SITE</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>À partir de 10x de: <span id="vmzParceladoUn"></span></td>
+                        <td class="veja-empresa"><a href="redirect-vmz-un.html"><button>ENTRAR NO SITE</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>À partir de 12x de: <span id="vpParceladoUn"></span></td>
+                        <td class="veja-empresa"><a href="redirect-vp-un.html"><button>ENTRAR NO SITE</button></a></td>
+                    </tr>
+                    <tr>
+                        <td>À partir de 10x de: <span id="decoParceladoUn"></span>0</td>
+                        <td class="veja-empresa"><a href="redirect-decolar-un.html"><button>ENTRAR NO SITE</button></a></td>
+                    </tr>
+                </table>
+                <p class="disclaimer">*Os valores exibidos acima foram coletados pelo nosso sistema no dia <span id="jkl"></span> e horário <span id="mno"></span>. 
+                    Os mesmos estão sujeitos à <br>alterações em decorrência de flutuação cambial. O valor final deverá ser confirmado no site da operadora.</p>    
+            </div>
+   
+
+    </body>
+
+    <script>
+
+        /* READING JSON FILE */ 
+        
+        $.getJSON("Scraped-Universal.json", function(d) {
+            const mbUnPreco = d["MB-UN"]["preco2"];
+            $("#mbParceladoUn").html(mbUnPreco);
+
+            const vmzUnPreco = d["VMZ-UN"]["preco2"];
+            $("#vmzParceladoUn").html(vmzUnPreco);
+
+            const decoUnPreco = d["DECO-UN"]["preco"];            
+            const decoUnPrecoParcelado = decoUnPreco*100;
+            $("#decoParceladoUn").html(decoUnPrecoParcelado);
+            
+            const vpUnPreco = d["VP-UN"]["preco2"];
+            $("#vpParceladoUn").html(vpUnPreco);
+
+            let horario = new Date(d.horario);
+
+            $("#jkl").html(horario.getDate() + "/" + (horario.getMonth() + 1) + "/" + horario.getFullYear());
+            $("#mno").html(horario.getHours() + ":" + horario.getMinutes());
+            
+        });
+
+    </script>
+
+
+
+</html>
