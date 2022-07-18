@@ -323,6 +323,7 @@ table button:hover {
     color: white;    
     font-weight: 900;
     font-size: 1.1vw;
+    border: none;
     width: 30%;
     height: 6%;
     margin-top: 35%;
@@ -389,6 +390,7 @@ table button:hover {
     color: white;    
     font-weight: 900;
     font-size: 1.1vw;
+    border: none;
     width: 25%;
     height: 6%;
     position: absolute;
