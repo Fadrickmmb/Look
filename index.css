@@ -341,9 +341,9 @@ table button:hover {
 }
 
 
-.loader {
-    height: 30vh;
-    width: 30vw;
+.loader {    
+    height: 30%;
+    width: 30%;
     overflow: hidden;
     position: fixed;
     margin-left: 47%;
@@ -351,7 +351,7 @@ table button:hover {
     background-color: white;
 }
 
-.loader div {
+.loader div {    
     height: 30%;
     width: 15%;
     border: 15px solid #d9d9d9;
@@ -374,7 +374,7 @@ table button:hover {
 
 .loader p {
     font-family: gilroy;
-    font-size: 1.3em;
+    font-size: 1.3vw;
     margin-top: 44%;    
 }
 
