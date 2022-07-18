@@ -210,7 +210,7 @@
 #disney-result-div {
     width: 56%;
     position: fixed;
-    margin-top: 22%;
+    margin-top: 21%;
     margin-left: 39%;   
 }
 
@@ -232,7 +232,7 @@ table {
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 10px;
+    padding: 8px;
     text-align: center;
     font-family: gilroy;
   }
@@ -341,13 +341,13 @@ table button:hover {
 }
 
 
-.loader {    
+.loader {  
     height: 30%;
     width: 30%;
     overflow: hidden;
     position: fixed;
     margin-left: 47%;
-    margin-top: 23%;
+    margin-top: 22%;
     background-color: white;
 }
 
@@ -358,7 +358,7 @@ table button:hover {
     border-top-color: #fd2371;
     position: absolute;
     margin: auto;
-    top: 0;
+    top: -40%;
     bottom: 0;
     right: 0;
     left: 0;
@@ -375,11 +375,11 @@ table button:hover {
 .loader p {
     font-family: gilroy;
     font-size: 1.3vw;
-    margin-top: 44%;    
+    margin-top: 30%;    
 }
 
 .disclaimer {
-    margin-top: 2%;
+    margin-top: 1%;
     color: #a9a6a6;
     font-size: 1.1vw;
 }
