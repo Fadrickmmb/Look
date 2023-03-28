@@ -7,16 +7,16 @@ const vmzPaths = [
 ];
 
 const mbPaths = [
-  "/html/body/section/div[2]/div/section/div[1]/div[1]/div/div[2]/a[1]/span[2]/span/div/div[2]/span",
-  "/html/body/section/div[2]/div/section/div[1]/div[1]/div/div[2]/a[1]/span[2]/span/div/div[4]/span",
+  "/html/body/section/div[2]/div/section/div[1]/div[1]/div/div[2]/div/a/div[2]/span",
+  "/html/body/section/div[2]/div/section/div[1]/div[1]/div/div[2]/div/div/a/div/div/strong[2]",
 ];
 
 const decoPaths = [
-    '//*[@id="bodyID"]/div[2]/div/div[2]/div/div/div/div[3]/div[3]/ticket-price-box/div/div/span[2]/div/span[2]/span/span',
+    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[4]/div/text()',
 ];
 
 const vpPaths = [
-    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[6]',
+    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[2]',
     '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[4]',
 ];
 
@@ -34,7 +34,7 @@ let browser;
   browser = await puppeteer.launch({headless: true});
   const text = await Promise.all([
     scrape(browser, "https://www.ingressosmagicblue.com.br/ingressos-disney/?mpage=2", mbPaths),
-    scrape(browser, "https://www.vmzviagens.com.br/ingressos/orlando/walt-disney-orlando", vmzPaths),
+    scrape(browser, "https://www.vmzviagens.com.br/ingressos/orlando/disney-world-ingresso", vmzPaths),
     scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-DY_ORL/ingressos+para+walt+disney+world+resort-orlando", decoPaths),
     scrape(browser, "https://www.voupra.com/estados-unidos/orlando/disney-world?gclid=CjwKCAjwquWVBhBrEiwAt1KmwozkmSdvlsz2lW49QRF1gcondnMLugN9GTVCh8MhQA4Z4pQIh4HKpxoCP5gQAvD_BwE", vpPaths),
   ]);

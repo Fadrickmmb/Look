@@ -2,22 +2,22 @@ const fs = require("fs").promises;
 const puppeteer = require("puppeteer"); // ^14.3.0
 
 const vmzUnPaths = [
-  '//*[@id="__layout"]/div/div[1]/section/div/div/div[2]/div[2]/div[2]/div/div/div[2]/div/div[1]/span[2]',
-  '//*[@id="__layout"]/div/div[1]/section/div/div/div[2]/div[2]/div[2]/div/div/div[2]/div/div[1]/span[4]/b',
+  '//*[@id="__layout"]/div/div[1]/section/div/div/div[2]/div[2]/div[7]/div/div/div[2]/div/div[1]/span[2]',
+  '//*[@id="__layout"]/div/div[1]/section/div/div/div[2]/div[2]/div[7]/div/div/div[2]/div/div[1]/span[4]/b',
 ];
 
 const mbUnPaths = [
-  "/html/body/section[3]/div/div/div[2]/div[2]/div/div[2]/a[1]/span[2]/span/div/div[2]/span",
-  "/html/body/section[3]/div/div/div[2]/div[2]/div/div[2]/a[1]/span[2]/span/div/div[4]/span",
+  "/html/body/section[3]/div/div/div[2]/div[2]/div/div[2]/div/a/div[2]/span",
+  "/html/body/section[3]/div/div/div[2]/div[2]/div/div[2]/div/div/a/div/div/strong[2]",
 ];
 
 const decoUnPaths = [
-    '//*[@id="bodyID"]/div[2]/div/div[2]/div/div/div/div[3]/div[3]/ticket-price-box/div/div/span[2]/div/div/span/span',
+    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[4]/div/text()',
 ];
 
 const vpUnPaths = [
-    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[11]/div/div/div[2]/div/div/div[1]/div[6]/text()',
-    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[11]/div/div/div[2]/div/div/div[1]/div[4]',
+    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[2]',
+    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[4]',
 ];
 
 
@@ -35,7 +35,7 @@ let browser;
   const text = await Promise.all([
     scrape(browser, "https://www.ingressosmagicblue.com.br/ingressos-universal-flexivel/", mbUnPaths),
     scrape(browser, "https://www.vmzviagens.com.br/ingressos/orlando/universal-studios", vmzUnPaths),
-    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-UN_ORL/ingressos+para+universal+orlando+resort-orlando?fixedDate=2022-06-29", decoUnPaths),
+    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-UN_ORL/ingressos+para+universal+orlando+resort-orlando?distribution=1", decoUnPaths),
     scrape(browser, "https://www.voupra.com/estados-unidos/orlando/universal-orlando", vpUnPaths),
   ]);
   const names = ["MB-UN", "VMZ-UN", "DECO-UN", "VP-UN"];
