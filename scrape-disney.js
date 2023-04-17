@@ -35,7 +35,7 @@ let browser;
   const text = await Promise.all([
     scrape(browser, "https://www.ingressosmagicblue.com.br/ingressos-disney/?mpage=2", mbPaths),
     scrape(browser, "https://www.vmzviagens.com.br/ingressos/orlando/disney-world-ingresso", vmzPaths),
-    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-DY_ORL/ingressos+para+walt+disney+world+resort-orlando", decoPaths),
+    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-DY_ORL/ingressos+para+walt+disney+world+resort-orlando?distribution=1", decoPaths),
     scrape(browser, "https://www.voupra.com/estados-unidos/orlando/disney-world?gclid=CjwKCAjwquWVBhBrEiwAt1KmwozkmSdvlsz2lW49QRF1gcondnMLugN9GTVCh8MhQA4Z4pQIh4HKpxoCP5gQAvD_BwE", vpPaths),
   ]);
   const names = ["MB", "VMZ", "DECO", "VP"];
