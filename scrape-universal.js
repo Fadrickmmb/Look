@@ -12,7 +12,7 @@ const mbUnPaths = [
 ];
 
 const decoUnPaths = [
-    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[4]/div/text()',
+    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[3]/div/text()',
 ];
 
 const vpUnPaths = [
