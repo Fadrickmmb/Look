@@ -24,7 +24,7 @@ const vpUnPaths = [
 const scrape = async (browser, url, paths) => {
   const page = await browser.newPage();
   await page.goto(url);
-  return Promise.all(paths.map(async p =>
+  return Promise.all(paths.map(async p => 
     (await page.waitForXPath(p)).evaluate(e => e.textContent)
   ));
 };
