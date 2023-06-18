@@ -12,7 +12,7 @@ const mbPaths = [
 ];
 
 const decoPaths = [
-    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[4]/div/text()',
+    '/html/body/app-root/detail/div/div/div[4]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[4]/div/text()',
 ];
 
 const vpPaths = [
