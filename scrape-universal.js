@@ -16,8 +16,8 @@ const decoUnPaths = [
 ];
 
 const vpUnPaths = [
-    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[2]',
-    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[2]/div/div/div[1]/div[4]',
+    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[3]/div[1]/div[5]',
+    '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[3]/div[1]/div[3]',
 ];
 
 
@@ -35,7 +35,7 @@ let browser;
   const text = await Promise.all([
     scrape(browser, "https://www.ingressosmagicblue.com.br/ingressos-universal-flexivel/", mbUnPaths),
     scrape(browser, "https://www.vmzviagens.com.br/ingressos/orlando/universal-studios", vmzUnPaths),
-    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-UN_ORL/ingressos+para+universal+orlando+resort-orlando?distribution=1", decoUnPaths),
+    scrape(browser, "https://www.decolar.com/atracoes-turisticas/d-UN_ORL/ingressos+para+universal+orlando+resort-orlando?destination=ORL&distribution=1", decoUnPaths),
     scrape(browser, "https://www.voupra.com/estados-unidos/orlando/universal-orlando", vpUnPaths),
   ]);
   const names = ["MB-UN", "VMZ-UN", "DECO-UN", "VP-UN"];
