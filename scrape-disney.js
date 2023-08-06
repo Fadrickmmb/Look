@@ -12,13 +12,14 @@ const mbPaths = [
 ];
 
 const decoPaths = [
-    '/html/body/app-root/detail/div/div/div[3]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[3]/div/text()',
+    '/html/body/app-root/detail/div/div/div[4]/detail-pricebox-sticky/pricebox-sticky/div/div[1]/div[1]/div[3]/div/text()',
 ];
 
 const vpPaths = [
     '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[3]/div[1]/div[5]',
     '/html/body/div[8]/div/div[1]/div[2]/div[1]/div[4]/div/div/div[3]/div[1]/div[3]',
 ];
+
 
 
 const scrape = async (browser, url, paths) => {
